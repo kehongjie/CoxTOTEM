@@ -2,21 +2,21 @@
 ##' 
 ##' This function implements the two-step aggregation screening method to Cox 
 ##' models with multiple studies. It is the first stage (i.e. screening stage)
-##' of Cox-TOTEM algorithm.
+##' of Cox-TOTEM method.
 ##' 
 ##' @param data.list: A list in which every element represents a study. 
 ##' Within each element (study), \code{time} is the follow up time (n * 1), 
 ##' \code{event} is the status indicator (n * 1) with 0=alive and 1=dead, and
 ##' \code{X} is the covariates matrix of dimensions n * p.
 ##' @param alpha1: Tuning parameter, as \eqn{\alpha_1} in the paper. The Normal
-##' critical qunatile when screening within each study. The default is 1e-4.
+##' critical qunatile when screening within each study. The default is \code{1E-4}.
 ##' @param alpha2: Tuning parameter, as \eqn{\alpha_2} in the paper. The 
 ##' Chi-square critical quantile when screening aggregation of studies. The 
 ##' default is 0.05.
 ##' 
 ##' @return A list in which \code{stats} is the vector of the screening 
-##' statistics for all the covariates, and \code{index} is the vector of 
-##' indices of potential nonzero coefficients.
+##' statistics for all the covariates (for ranking purpose), and \code{index} 
+##' is the vector of indices of potential nonzero coefficients.
 ##' @export
 ##' @examples
 ##' \dontrun{
@@ -27,7 +27,7 @@
 ##' n <- 50 ## sample size
 ##' p <- 200 ## number of covariates
 ##' rho <- 0.5
-##' K <- 5 ## number of studies
+##' S <- 5 ## number of studies
 ##' ss <- 2 ## number of signal/true predictors
 ##' lambda0 <- 1 ## baseline hazard
 ##' rate <- 0.2 ## parameter for Exponential distribution
@@ -36,15 +36,15 @@
 ##' ## set up the coefficients
 ##' true.ind <- sample(1:p,size=ss) ## signal index
 ##' noise.ind <- (1:p)[-true.ind]
-##' beta.mat <- matrix(0,nrow=p,ncol=K)
+##' beta.mat <- matrix(0,nrow=p,ncol=S)
 ##' for(jj in 1:length(true.ind)){
 ##'   beta.mat[true.ind[jj],] <- mu
 ##' }
 ##' 
 ##' ## simulate data for each study
-##' data.list <- vector("list",K)
-##' for(k in 1:K){
-##'   beta <- beta.mat[,k]
+##' data.list <- vector("list",S)
+##' for(s in 1:S){
+##'   beta <- beta.mat[,s]
 ##'   sigma <- toeplitz(rho^c(0,1:(p-1)))
 ##'   X <- mvrnorm(n, rep(0,p), sigma)
 ##'   U <- runif(n,0,1)
@@ -52,12 +52,13 @@
 ##'   time <- -log(U) / (lambda0*exp(X%*%beta)) 
 ##'   Y <- pmin(time,C)
 ##'   D <- ifelse(time<C,1,0)
-##'   data.list[[k]] <- list(time=Y,event=D,X=X)
+##'   data.list[[s]] <- list(time=Y,event=D,X=X)
 ##' }
 ##' 
 ##' ## screening
 ##' res.CoxSIS <- CoxSIS(data.list=data.list, alpha1=1e-4, alpha2=0.05)
-##' res.CoxSIS$index
+##' print(res.CoxSIS$index) ## selected index set after CoxSIS
+##' print(true.ind) ## true index set 
 ##' }
 
 CoxSIS <- function(data.list, alpha1=1e-4, alpha2=0.05) {
@@ -86,15 +87,15 @@ CoxSIS <- function(data.list, alpha1=1e-4, alpha2=0.05) {
 
 multiCoxZ <- function(data.list){
   p <- ncol(data.list[[1]][["X"]])
-  K <- length(data.list)
-  coxz.mat <-  matrix(NA,p,K)
-  for(k in 1:K){
-    dat <- data.list[[k]]
+  S <- length(data.list)
+  coxz.mat <-  matrix(NA,p,S)
+  for(s in 1:S){
+    dat <- data.list[[s]]
     X <- dat[["X"]]
     time <- c(dat[["time"]])
     event <- c(dat[["event"]])
     
-    coxz.mat[,k] <- sapply(1:p, function(j){ 
+    coxz.mat[,s] <- sapply(1:p, function(j){ 
       datj <- data.frame(time=time,event=event,x=X[,j])
       return(margCoxZ(datj))
     })
