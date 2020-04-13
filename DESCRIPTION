@@ -1,0 +1,30 @@
+Package: CoxTOTEM
+Type: Package
+Title: A Cox model based two-stage variable selection method for multiple studies.
+Version: 1.0
+Date: 2020-04-12
+Description: The package implements a Cox model based two-stage variable selection method for the detection of survival associated biomarkers with multiple genomic studies.
+License: GPL (>= 2)
+Authors@R: c(
+    person("Takumi", "Saegusa", role = "aut"),
+    person("Zhiwei", "Zhao", role = "aut"),
+    person("Hongjie", "Ke", email = "kehj@terpmail.umd.edu", role = c("aut", "cre")),
+    person("Zhenyao", "Ye", role = "aut"),
+    person("Zhongying", "Xu", role = "aut"),
+    person("Shuo", "Chen", role = "aut"),
+    person("Tianzhou", "Ma", role = "aut"))
+Author: Takumi Saegusa [aut],
+  Zhiwei Zhao [aut],
+  Hongjie Ke [aut, cre],
+  Zhenyao Ye [aut],
+  Zhongying Xu [aut],
+  Shuo Chen [aut],
+  Tianzhou Ma [aut]
+Maintainer: Hongjie Ke <kehj@terpmail.umd.edu>
+Depends: R (>= 3.2.4)
+Imports: MASS, survival
+RoxygenNote: 6.0.1
+NeedsCompilation: yes
+Packaged: 2020-04-12 10:38:21 UTC; kehongjie
+Repository: CRAN
+Date/Publication: 2020-04-12 10:38:21 UTC
