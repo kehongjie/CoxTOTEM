@@ -6,13 +6,13 @@ Date: 2020-04-12
 Description: The package implements a Cox model based two-stage variable selection method for the detection of survival associated biomarkers with multiple genomic studies.
 License: GPL (>= 2)
 Authors@R: c(
-    person("Takumi", "Saegusa", role = "aut"),
-    person("Zhiwei", "Zhao", role = "aut"),
-    person("Hongjie", "Ke", email = "kehj@terpmail.umd.edu", role = c("aut", "cre")),
-    person("Zhenyao", "Ye", role = "aut"),
-    person("Zhongying", "Xu", role = "aut"),
-    person("Shuo", "Chen", role = "aut"),
-    person("Tianzhou", "Ma", role = "aut"))
+  person("Takumi", "Saegusa", role = "aut"),
+  person("Zhiwei", "Zhao", role = "aut"),
+  person("Hongjie", "Ke", email = "kehj@terpmail.umd.edu", role = c("aut", "cre")),
+  person("Zhenyao", "Ye", role = "aut"),
+  person("Zhongying", "Xu", role = "aut"),
+  person("Shuo", "Chen", role = "aut"),
+  person("Tianzhou", "Ma", role = "aut"))
 Author: Takumi Saegusa [aut],
   Zhiwei Zhao [aut],
   Hongjie Ke [aut, cre],
