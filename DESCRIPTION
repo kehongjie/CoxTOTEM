@@ -1,29 +1,37 @@
 Package: CoxTOTEM
-Type: Package
-Title: A Cox model based two-stage variable selection method for multiple studies.
+Title: A Cox Model based Two-stage Variable Selection Method for Multiple Studies
 Version: 1.0
 Date: 2020-04-12
-Description: The package implements a Cox model based two-stage variable selection method for the detection of survival associated biomarkers with multiple genomic studies.
+Description: The package implements a Cox model based two-stage variable selection
+    method for the detection of survival associated biomarkers with multiple 
+    genomic studies. In the first stage, it performs sure screening with multiple
+    studies in high-dimensional Cox model, and in the second stage, it penalizes 
+    the partial likelihood with a group lasso penalty to select the final set of 
+    variables in all studies simultaneously. 
 License: GPL (>= 2)
+Encoding: UTF-8
 Authors@R: c(
-  person("Takumi", "Saegusa", role = "aut"),
-  person("Zhiwei", "Zhao", role = "aut"),
-  person("Hongjie", "Ke", email = "kehj@terpmail.umd.edu", role = c("aut", "cre")),
-  person("Zhenyao", "Ye", role = "aut"),
-  person("Zhongying", "Xu", role = "aut"),
-  person("Shuo", "Chen", role = "aut"),
-  person("Tianzhou", "Ma", role = "aut"))
+    person("Takumi", "Saegusa", role = "aut"),
+    person("Zhiwei", "Zhao", role = "aut"),
+    person("Hongjie", "Ke", email = "kehj@terpmail.umd.edu", role = c("aut", "cre")),
+    person("Zhenyao", "Ye", role = "aut"),
+    person("Zhongying", "Xu", role = "aut"),
+    person("Shuo", "Chen", role = "aut"),
+    person("Tianzhou", "Ma", role = "aut"))
 Author: Takumi Saegusa [aut],
-  Zhiwei Zhao [aut],
-  Hongjie Ke [aut, cre],
-  Zhenyao Ye [aut],
-  Zhongying Xu [aut],
-  Shuo Chen [aut],
-  Tianzhou Ma [aut]
+    Zhiwei Zhao [aut],
+    Hongjie Ke [aut, cre],
+    Zhenyao Ye [aut],
+    Zhongying Xu [aut],
+    Shuo Chen [aut],
+    Tianzhou Ma [aut]
 Maintainer: Hongjie Ke <kehj@terpmail.umd.edu>
 Depends: R (>= 3.2.4)
-Imports: MASS, survival
-RoxygenNote: 6.0.1
+Imports: 
+    MASS, 
+    survival
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
 NeedsCompilation: yes
 Packaged: 2020-04-12 10:38:21 UTC; kehongjie
 Repository: CRAN
