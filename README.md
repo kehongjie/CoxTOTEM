@@ -2,7 +2,7 @@
 A Cox model based two-stage variable selection method for the detection of survival associated biomarkers with multiple genomic studies. In the first stage, it performs sure screening with multiple studies in high-dimensional Cox model, and in the second stage, it penalizes the partial likelihood with a group lasso penalty to select the final set of variables in all studies simultaneously. 
 
 # Installation
-To install the `CoxTOTEM` package, you will need to first install `devtools` package and then execute the following code: 
+To install the `CoxTOTEM` package, you will first need to install `devtools` package and then execute the following code: 
 ```
 devtools::install_github('kehongjie/CoxTOTEM')
 ```
