@@ -12,5 +12,4 @@ The `PanGyn.RData` in the `data` folder has RNA-seq data and clinical data conta
 ```
 library(CoxTOTEM)
 data(PanGyn)
-
 ``` 
