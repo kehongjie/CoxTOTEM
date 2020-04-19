@@ -8,4 +8,4 @@ devtools::install_github('kehongjie/CoxTOTEM')
 ```
 
 # Data
-The `PanGyn.RData` in the `data` folder has RNA-seq data and clinical data containing the survival outcomes of the five Pan-Gyn cancer types, including high-grade serous ovarian cystadenocarcinoma (OV), uterine corpus endometrial carcinoma (UCEC), cervical squamous cell carcinoma and endocervical adenocarcinoma (CESC), uterine carcinosarcoma (UCS), and invasive breast carcinoma (BRCA). The data comes from The Cancer Genome Atlas (TCGA) projects. 
+The `PanGyn.RData` in the `data` folder has RNA-seq data and clinical data containing the survival outcomes of the five Pan-Gyn cancer types, including high-grade serous ovarian cystadenocarcinoma (OV), uterine corpus endometrial carcinoma (UCEC), cervical squamous cell carcinoma and endocervical adenocarcinoma (CESC), uterine carcinosarcoma (UCS), and invasive breast carcinoma (BRCA). The data comes from The Cancer Genome Atlas (TCGA) projects. Use `data(PanGyn)` to access to the data.
